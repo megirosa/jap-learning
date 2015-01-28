@@ -7,8 +7,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can [:index, :learn], Course
-      can :update, Word
+      can [:index, :show, :learn], Course
     end
   end
 end
