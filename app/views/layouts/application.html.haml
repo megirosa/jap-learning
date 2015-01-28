@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title JapaneseLearning
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-static-top{role: "navigation"}
+      .container
+        .navbar-header
+          %a.navbar-brand{href: "#"} Project name
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'Courses', courses_path
+            %li
+              = link_to 'Words', words_path
+            - if user_signed_in?
+              %li
+                = link_to('Logout', destroy_user_session_path, :method => :delete)
+    .container
+      = yield

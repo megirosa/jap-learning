@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Times repeated:
+  = @course_item.times_repeated
+%p
+  %b Last learning:
+  = @course_item.last_learning
+%p
+  %b Word:
+  = @course_item.word
+%p
+  %b Course:
+  = @course_item.course
+
+= link_to 'Edit', edit_course_item_path(@course_item)
+\|
+= link_to 'Back', course_items_path
