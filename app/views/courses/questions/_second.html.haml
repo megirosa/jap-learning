@@ -1,7 +1,7 @@
 .word-box
   {{current_word.translation}}
 .means
-  znaczy:
+  means:
 .row
   .col-md-6{"ng-repeat" => "answer in answers track by $index"}
     %input{"type" => "radio", "id" => "answer{{$index+1}}", "name" => "ans", "ng-value" => "answer.id", "ng-model" => "$parent.selected_answer_id"}

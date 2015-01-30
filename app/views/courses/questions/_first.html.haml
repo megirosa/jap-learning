@@ -8,7 +8,7 @@
   %span.only-romaji{"ng-if" => "current_word.showOnlyRomaji"}
     {{current_word.romaji}}
 .means
-  znaczy:
+  means:
 .row
   .col-md-6{"ng-repeat" => "answer in answers track by $index"}
     %input{"type" => "radio", "id" => "answer{{$index+1}}", "name" => "ans", "ng-value" => "answer.id", "ng-model" => "$parent.selected_answer_id"}

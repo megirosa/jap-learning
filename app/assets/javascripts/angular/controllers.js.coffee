@@ -40,11 +40,18 @@ japaneseLearningApp.controller "learnCtrl", [
       prepare_answers_array(count) 
 
     prepare_answers_array = (count) ->
-      $scope.answers = [$scope.current_word, $scope.words[0], $scope.words[1], $scope.words[2]] if count == 4
+      answers = allowed_answers()
+      $scope.answers = [$scope.current_word, answers[0], answers[1], answers[2]] if count == 4
 
-      $scope.answers = [$scope.current_word, $scope.words[0], $scope.words[1], $scope.words[2],
-                        $scope.words[3], $scope.words[4], $scope.words[5], $scope.words[6]] if count == 8
-      shuffle $scope.answers if $scope.answers
+      $scope.answers = [$scope.current_word, answers[0], answers[1], answers[2],
+                        answers[3], answers[4], answers[5], answers[6]] if count == 8
+      if $scope.answers
+        shuffle $scope.answers
+        $scope.answers = $scope.answers.filter (answer) -> answer?
+
+    allowed_answers = ->
+      words = $scope.words
+      words.filter (word) -> word != $scope.current_word
 
     #END QUESTION################################################################
 
@@ -68,7 +75,7 @@ japaneseLearningApp.controller "learnCtrl", [
     right_answer = (word) ->
       $scope.selected_answer_id = null
       word.progress = word.progress + 1
-      $scope.alert.message = "Dobrze!"
+      $scope.alert.message = "Right!"
       $scope.alert.class = "alert-success"
       if word.progress == 6
         end_learning(word)
@@ -79,7 +86,7 @@ japaneseLearningApp.controller "learnCtrl", [
     wrong_answer = (word) ->
       $scope.selected_answer_id = null
       word.errors = word.errors + 1
-      $scope.alert.message = "Źle!"
+      $scope.alert.message = "Wrong!"
       $scope.alert.class = "alert-danger"
       $scope.current_word = word
       $scope.current_question = "new"
@@ -111,9 +118,9 @@ japaneseLearningApp.controller "learnCtrl", [
 
     update_word = (word) ->
       resolved = ->
-        console.log "yupi"
+        console.log "updated"
       rejected = ->
-        console.log "booo"
+        console.log "error"
       word.update().then(resolved, rejected)
 
     remove_word = (id) ->
@@ -122,7 +129,7 @@ japaneseLearningApp.controller "learnCtrl", [
     #END COURSE##################################################################
 
     end_course = ->
-      console.log "koniec"
+      console.log "end"
       $scope.current_question = "end"
 
     #HELPERS#####################################################################

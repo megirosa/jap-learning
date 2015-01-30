@@ -74,38 +74,41 @@
   margin: 20px 0;
 }
 
-input[type=radio] {
-  display:none;
-}
+#questions {
+  input[type=radio] {
+    display: none;
+  }
 
-input[type=radio] + label {
-  display: block;
-  width: 100%;
-  border-radius: 20px;
-  border: 2px solid $pink;
-  padding: 15px;
-  margin: 10px 0;
-  font-size: 1.5em;
-}
+  input[type=radio] + label {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid $pink;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
 
-input[type=radio]:checked + label { 
-  background-image: none;
-  background-color:#d0d0d0;
-}
+  input[type=radio]:checked + label { 
+    background-image: none;
+    background-color:#d0d0d0;
+  }
 
-inputt[type=text] {
-  width: 100%;
-  display: block;
-  border: none;
-  color: #333;
-  background: transparent;
-  border-bottom: 2px dotted $pink;
-  padding: 5px 2px 0 2px;
-  margin: 20px 0;
-  font-size: 4em;
-}
+  input[type=text] {
+    width: 100%;
+    display: block;
+    border: none;
+    color: #333;
+    background: transparent;
+    border-bottom: 2px dotted $pink;
+    padding: 5px 2px 0 2px;
+    margin: 20px 0;
+    font-size: 4em;
+  }
 
-inputt[type=text]:focus {
-  outline: none;
-  border-color: $pink_dark;
+  input[type=text]:focus {
+    outline: none;
+    border-color: $pink_dark;
+  }
 }
