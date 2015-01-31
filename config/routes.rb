@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   devise_for :users
-  resources :course_items
+  resources :learned_words
 
   resources :courses do
     member do

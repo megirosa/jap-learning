@@ -1,11 +1,11 @@
 "use strict"
 
 angular.module "japaneseLearningApp.services", ["rails"]
-angular.module("japaneseLearningApp.services").factory "CourseItem", [
+angular.module("japaneseLearningApp.services").factory "LearnedWord", [
   "railsResourceFactory"
   (railsResourceFactory) ->
     return railsResourceFactory(
-      url: "/course_items"
-      name: "course_item"
+      url: "/learned_words"
+      name: "learned_word"
     )
 ]

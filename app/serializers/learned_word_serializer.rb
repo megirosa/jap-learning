@@ -1,4 +1,4 @@
-class CourseItemSerializer < ActiveModel::Serializer
+class LearnedWordSerializer < ActiveModel::Serializer
   attributes :id, :times_repeated, :last_learned, :translation, 
              :romaji, :kana, :kanji, :is_new, :completed,
              :show_romaji, :show_kana, :show_kanji, :show_only_romaji
@@ -28,5 +28,9 @@ class CourseItemSerializer < ActiveModel::Serializer
 
   def show_only_romaji
     false
+  end
+
+  def times_repeated
+    object.times_repeated || 0
   end
 end

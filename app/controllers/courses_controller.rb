@@ -40,6 +40,7 @@ class CoursesController < ApplicationController
   end
 
   def learn
+    Learning.find_or_create_by(user: current_user, course: @course)
   end
 
   private

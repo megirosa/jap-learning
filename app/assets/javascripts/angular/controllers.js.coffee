@@ -2,15 +2,15 @@
 
 japaneseLearningApp = angular.module("japaneseLearningApp", ["japaneseLearningApp.services"])
 japaneseLearningApp.controller "learnCtrl", [
-  '$scope', 'CourseItem',
-  ($scope, CourseItem) ->
+  '$scope', 'LearnedWord',
+  ($scope, LearnedWord) ->
     $scope.course = window.course
     $scope.current_question = "start"
     $scope.alert = {}
     questions = ["new", "first", "second", "third", "fourth", "fifth"]
 
-    $scope.CourseItem = CourseItem.query(course_id: $scope.course.id).then((course_items) ->
-      $scope.course_items = course_items
+    $scope.LearnedWord = LearnedWord.query(course_id: $scope.course.id).then((learned_words) ->
+      $scope.course_items = learned_words
       set_progress(item) for item in $scope.course_items
       item.errors = 0 for item in $scope.course_items
       $scope.words = $scope.course_items
@@ -121,6 +121,7 @@ japaneseLearningApp.controller "learnCtrl", [
         console.log "updated"
       rejected = ->
         console.log "error"
+      console.log word
       word.update().then(resolved, rejected)
 
     remove_word = (id) ->

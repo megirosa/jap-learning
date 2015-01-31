@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128192751) do
+ActiveRecord::Schema.define(version: 20150131193240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,31 @@ ActiveRecord::Schema.define(version: 20150128192751) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "learned_words", force: :cascade do |t|
+    t.integer  "times_repeated", default: 0
+    t.boolean  "completed",      default: false
+    t.datetime "last_learned"
+    t.integer  "word_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "learned_words", ["user_id"], name: "index_learned_words_on_user_id", using: :btree
+  add_index "learned_words", ["word_id"], name: "index_learned_words_on_word_id", using: :btree
+
+  create_table "learnings", force: :cascade do |t|
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "learnings", ["course_id"], name: "index_learnings_on_course_id", using: :btree
+  add_index "learnings", ["user_id"], name: "index_learnings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

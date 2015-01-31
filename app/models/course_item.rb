@@ -3,13 +3,13 @@
 # Table name: course_items
 #
 #  id             :integer          not null, primary key
-#  times_repeated :integer
+#  times_repeated :integer          default("0")
 #  last_learned   :datetime
 #  word_id        :integer
 #  course_id      :integer
 #  created_at     :datetime
 #  updated_at     :datetime
-#  completed      :boolean          default(FALSE)
+#  completed      :boolean          default("false")
 #
 
 class CourseItem < ActiveRecord::Base
