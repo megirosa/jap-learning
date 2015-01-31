@@ -106,7 +106,7 @@ japaneseLearningApp.controller "learnCtrl", [
         count = 1
       else
         count = 0
-      word.times_repeated = word.times_repeated + count
+      word.timesRepeated = word.timesRepeated + count
       word.completed = true if word.times_repeated >= 10
 
     set_next_learning_date = (word) ->
