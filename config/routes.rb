@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :learned_words
+  resources :learnings
+  resources :words
 
   resources :courses do
     member do
       get 'learn'
     end
   end
-
-  resources :words
 end

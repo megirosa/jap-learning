@@ -18,4 +18,10 @@ class Word < ActiveRecord::Base
   def to_label
     "#{translation} (#{romaji})"
   end
+
+  def progress_for(user)
+    learned_word = learned_words.where(user: user).first
+    times_repeated = learned_word.times_repeated
+    (times_repeated.to_f / 10.0) * 100
+  end
 end

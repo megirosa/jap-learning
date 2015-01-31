@@ -20,7 +20,7 @@ class Learning < ActiveRecord::Base
   private
 
   def set_start_date
-    start_date = created_at
+    started_at = created_at
   end
 
   def create_progresses

@@ -8,6 +8,7 @@ class Ability
       can :manage, :all
     else
       can [:index, :show, :learn], Course
+      can [:index], Learning
     end
   end
 end
