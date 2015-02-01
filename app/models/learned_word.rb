@@ -19,6 +19,6 @@ class LearnedWord < ActiveRecord::Base
   delegate :translation, :romaji, :kana, :kanji, to: :word
 
   def self.items_for(course_id)
-    joins(word: :course_items).where(course_items: { course_id: 1 }).order('last_learned asc').limit 10
+    joins(word: :course_items).where(course_items: { course_id: course_id }).order('last_learned asc').limit 10
   end
 end
