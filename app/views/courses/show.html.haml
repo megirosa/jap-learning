@@ -1,12 +1,11 @@
-%p
-  %b Name:
+%h1
   = @course.name
-%p
-  %b Start date:
-  = @course.start_date
-%p
-  %b End date:
-  = @course.end_date
+
+- @course.words.each do |word|
+  %li
+    %strong
+      = word.translation
+    = word.romaji
 
 = link_to 'Edit', edit_course_path(@course)
 \|

@@ -17,13 +17,10 @@ ActiveRecord::Schema.define(version: 20150131193240) do
   enable_extension "plpgsql"
 
   create_table "course_items", force: :cascade do |t|
-    t.integer  "times_repeated", default: 0
-    t.datetime "last_learned"
     t.integer  "word_id"
     t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "completed",      default: false
   end
 
   add_index "course_items", ["course_id"], name: "index_course_items_on_course_id", using: :btree
@@ -31,8 +28,6 @@ ActiveRecord::Schema.define(version: 20150131193240) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

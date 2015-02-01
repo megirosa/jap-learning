@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: progresses
+# Table name: learned_words
 #
 #  id             :integer          not null, primary key
 #  times_repeated :integer          default("0")

@@ -2,13 +2,13 @@
 #
 # Table name: learnings
 #
-#  id         :integer          not null, primary key
-#  start_date :datetime
-#  end_date   :datetime
-#  user_id    :integer
-#  course_id  :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  started_at  :datetime
+#  finished_at :datetime
+#  user_id     :integer
+#  course_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 class Learning < ActiveRecord::Base
