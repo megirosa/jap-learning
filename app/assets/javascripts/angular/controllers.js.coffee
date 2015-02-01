@@ -121,7 +121,6 @@ japaneseLearningApp.controller "learnCtrl", [
         console.log "updated"
       rejected = ->
         console.log "error"
-      console.log word
       word.update().then(resolved, rejected)
 
     remove_word = (id) ->
